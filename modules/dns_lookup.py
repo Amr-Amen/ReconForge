@@ -1,9 +1,7 @@
 import socket
 
 
-def dns_lookup():
-    target = input("\nEnter domain: ")
-
+def dns_lookup(target):
     try:
         ip = socket.gethostbyname(target)
 
