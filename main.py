@@ -5,6 +5,7 @@ from modules.banner_grab import banner_grab
 from modules.port_scanner import port_scanner
 from modules.ssl_info import ssl_information
 from modules.security_headers import security_headers
+from modules.technology_detection import technology_detection
 
 def banner():
     print("=" * 60)
@@ -65,8 +66,11 @@ def main():
         elif choice == "7":
             security_headers(target)
             input("\nPress Enter to continue...")
+        elif choice == "8":
+            technology_detection(target)
+            input("\nPress Enter to continue...")    
 
-        elif choice in ["8", "9", "10", "11"]:
+        elif choice in ["9", "10", "11"]:
             under_development()
 
         elif choice == "0":
