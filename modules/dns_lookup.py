@@ -1,13 +1,20 @@
 import socket
 
+from utils.ui import title, section, success, error, info
+
 
 def dns_lookup(target):
+    title("DNS Lookup")
+
+    info("Resolving target...")
+
     try:
         ip = socket.gethostbyname(target)
 
-        print("\n========== DNS Lookup ==========")
-        print(f"Domain : {target}")
-        print(f"IP      : {ip}")
+        section("DNS Information")
+
+        success(f"Target Domain : {target}")
+        success(f"IP Address    : {ip}")
 
     except socket.gaierror:
-        print("\n[-] Unable to resolve domain.")
+        error("Failed to resolve target.")

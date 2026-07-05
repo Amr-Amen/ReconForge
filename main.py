@@ -1,5 +1,7 @@
 from modules.dns_lookup import dns_lookup
 from modules.whois_lookup import whois_lookup
+from modules.http_headers import http_headers
+from modules.banner_grab import banner_grab
 
 
 def banner():
@@ -46,8 +48,14 @@ def main():
         elif choice == "2":
             whois_lookup(target)
             input("\nPress Enter to continue...")
+        elif choice == "3":
+            http_headers(target)
+            input("\nPress Enter to continue...")   
+        elif choice == "5":
+            banner_grab(target)
+            input("\nPress Enter to continue...") 
 
-        elif choice in ["3", "4", "5", "6", "7", "8", "9", "10", "11"]:
+        elif choice in ["4", "6", "7", "8", "9", "10", "11"]:
             under_development()
 
         elif choice == "0":

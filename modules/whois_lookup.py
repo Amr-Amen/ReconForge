@@ -1,16 +1,25 @@
 import whois
 
+from utils.ui import title, section, success, error, info
+
 
 def whois_lookup(target):
+
+    title("WHOIS Lookup")
+
+    info("Collecting WHOIS information...")
+
     try:
+
         data = whois.whois(target)
 
-        print("\n========== WHOIS Lookup ==========")
-        print(f"Domain          : {data.domain_name}")
-        print(f"Registrar       : {data.registrar}")
-        print(f"Creation Date   : {data.creation_date}")
-        print(f"Expiration Date : {data.expiration_date}")
-        print(f"Name Servers    : {data.name_servers}")
+        section("Domain Information")
+
+        success(f"Domain          : {data.domain_name}")
+        success(f"Registrar       : {data.registrar}")
+        success(f"Creation Date   : {data.creation_date}")
+        success(f"Expiration Date : {data.expiration_date}")
+        success(f"Name Servers    : {data.name_servers}")
 
     except Exception as e:
-        print(f"\n[-] Error: {e}")
+        error(str(e))
