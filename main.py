@@ -1,3 +1,5 @@
+from utils.colors import *
+
 from modules.dns_lookup import dns_lookup
 from modules.whois_lookup import whois_lookup
 from modules.http_headers import http_headers
@@ -8,81 +10,133 @@ from modules.security_headers import security_headers
 from modules.technology_detection import technology_detection
 from modules.subdomain_enum import subdomain_enum
 
+
 def banner():
-    print("=" * 60)
-    print("                 ReconForge")
-    print("     Python Reconnaissance Framework")
-    print("=" * 60)
+
+    print(CYAN + "=" * 65)
+
+    print(RED + r"""
+██████╗ ███████╗ ██████╗ ██████╗ ███╗   ██╗
+██╔══██╗██╔════╝██╔════╝██╔═══██╗████╗  ██║
+██████╔╝█████╗  ██║     ██║   ██║██╔██╗ ██║
+██╔══██╗██╔══╝  ██║     ██║   ██║██║╚██╗██║
+██║  ██║███████╗╚██████╗╚██████╔╝██║ ╚████║
+╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝
+""")
+
+    print(GREEN + "                 ReconForge v1.0")
+    print(YELLOW + "       Python Reconnaissance Framework")
+    print(MAGENTA + "          Developed by Amr Abdelnabi")
+    print(CYAN + "         For Educational Purposes Only")
+    print(CYAN + "=" * 65)
 
 
 def menu():
-    print("\n[1] DNS Lookup")
-    print("[2] WHOIS Lookup")
-    print("[3] HTTP Header Analysis")
-    print("[4] Port Scanner")
-    print("[5] Banner Grabbing")
-    print("[6] SSL Information")
-    print("[7] Security Headers")
-    print("[8] Technology Detection")
-    print("[9] Subdomain Enumeration")
-    print("[10] Directory Enumeration")
-    print("[11] Run Full Recon")
-    print("[0] Exit")
+
+    print()
+
+    print(GREEN + "[1]  DNS Lookup")
+    print(GREEN + "[2]  WHOIS Lookup")
+    print(GREEN + "[3]  HTTP Header Analysis")
+    print(GREEN + "[4]  Port Scanner")
+    print(GREEN + "[5]  Banner Grabbing")
+    print(GREEN + "[6]  SSL Information")
+    print(GREEN + "[7]  Security Headers")
+    print(GREEN + "[8]  Technology Detection")
+    print(GREEN + "[9]  Subdomain Enumeration")
+    print(GREEN + "[10] Directory Enumeration")
+    print(CYAN + "[11] Run Full Recon")
+    print(RED + "[0]  Exit")
 
 
 def under_development():
-    print("\n[!] This module is under development.")
+
+    print()
+    print(YELLOW + "=" * 60)
+    print(YELLOW + "Me and AI are still trying to make it behave😂.")
+    print(YELLOW + "=" * 60)
+
     input("\nPress Enter to continue...")
 
 
 def main():
-    target = input("Enter target domain: ").strip()
+
+    banner()
+
+    target = input(CYAN + "\nEnter target domain: ").strip()
 
     while True:
+
         banner()
-        print(f"\nCurrent Target: {target}")
+
+        print(CYAN + f"\n🎯 Current Target : {target}")
+
         menu()
 
-        choice = input("\nSelect an option: ")
+        choice = input(WHITE + "\nSelect an option: ").strip()
 
         if choice == "1":
+
             dns_lookup(target)
             input("\nPress Enter to continue...")
 
         elif choice == "2":
+
             whois_lookup(target)
             input("\nPress Enter to continue...")
+
         elif choice == "3":
+
             http_headers(target)
-            input("\nPress Enter to continue...")   
+            input("\nPress Enter to continue...")
+
         elif choice == "4":
+
             port_scanner(target)
             input("\nPress Enter to continue...")
+
         elif choice == "5":
+
             banner_grab(target)
-            input("\nPress Enter to continue...") 
+            input("\nPress Enter to continue...")
+
         elif choice == "6":
+
             ssl_information(target)
-            input("\nPress Enter to continue...")    
+            input("\nPress Enter to continue...")
+
         elif choice == "7":
+
             security_headers(target)
             input("\nPress Enter to continue...")
-        elif choice == "8":
-            technology_detection(target)
-            input("\nPress Enter to continue...")   
-        elif choice == "9":
-            subdomain_enum(target)
-            input("\nPress Enter to continue...")     
 
-        elif choice in ["10", "11"]:
+        elif choice == "8":
+
+            technology_detection(target)
+            input("\nPress Enter to continue...")
+
+        elif choice == "9":
+
+            subdomain_enum(target)
+            input("\nPress Enter to continue...")
+
+        elif choice == "10":
+
+            under_development()
+
+        elif choice == "11":
+
             under_development()
 
         elif choice == "0":
-            print("\nGoodbye!")
+
+            print(YELLOW + "\n👋 Gracias!")
             break
 
         else:
-            print("\n[-] Invalid option.")
+
+            print(RED + "\n[-] Invalid option.")
+
             input("\nPress Enter to continue...")
 
 
