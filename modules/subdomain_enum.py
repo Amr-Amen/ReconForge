@@ -84,4 +84,13 @@ def subdomain_enum(domain):
     success(f"Total : {len(subs)}")
     success(f"Alive : {len(alive)}")
     success(f"Dead  : {len(subs)-len(alive)}")
+
+    import os
+
+    os.makedirs("reports", exist_ok=True)
+
+    with open("reports/subdomains.txt", "w") as f:
+        for host in alive:
+            f.write(host + "\n")
+            
     return alive
