@@ -6,6 +6,7 @@ from modules.port_scanner import port_scanner
 from modules.ssl_info import ssl_information
 from modules.security_headers import security_headers
 from modules.technology_detection import technology_detection
+from modules.subdomain_enum import subdomain_enum
 
 def banner():
     print("=" * 60)
@@ -68,9 +69,12 @@ def main():
             input("\nPress Enter to continue...")
         elif choice == "8":
             technology_detection(target)
-            input("\nPress Enter to continue...")    
+            input("\nPress Enter to continue...")   
+        elif choice == "9":
+            subdomain_enum(target)
+            input("\nPress Enter to continue...")     
 
-        elif choice in ["9", "10", "11"]:
+        elif choice in ["10", "11"]:
             under_development()
 
         elif choice == "0":
