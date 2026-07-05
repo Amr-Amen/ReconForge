@@ -1,5 +1,4 @@
 
-![ReconForge](images/reconforge.png)
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 
@@ -33,7 +32,7 @@ A modular Python-based reconnaissance framework built with Python for penetratio
 ### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ReconForge.git
+git clone https://github.com/Amr-Amen/ReconForge.git
 cd ReconForge
 ```
 
